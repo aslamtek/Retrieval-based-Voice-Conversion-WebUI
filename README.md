@@ -111,6 +111,15 @@ python train.py --exp_name exp_somali --dataset chunks/ --output_dir models/ --e
 
 📸 Model Training Image
 
+![Model Training](assets/<img width="1855" height="511" alt="training1 png" src="https://github.com/user-attachments/assets/db4c3202-e791-48f4-b3af-5106bfecfeb8" />)
+)
+
+Trining Done:
+
+![Model Training Done](assets/<img width="958" height="891" alt="training2" src="https://github.com/user-attachments/assets/fb101320-af09-4664-9884-f3b1de147600" />)
+
+
+
 Notes:
 
 --exp_name → any custom experiment name (e.g., exp_somali)
