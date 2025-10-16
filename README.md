@@ -16,6 +16,8 @@
 - [Use Cases](#use-cases)
 - [Project Overview](#project-overview)
 - [Folder Structure](#folder-structure)
+- [Dataset](#dataset)
+- [Pre-trained Model](#pre-trained-model)
 - [Setup & Environment](#setup--environment)
 - [Data Preparation & Processing](#data-preparation--processing)
 - [Model Training & Conversion](#model-training--conversion)
@@ -71,9 +73,20 @@ data.ipynb / data.py # Supporting scripts and notebooks
 
 <img width="354" height="362" alt="folder" src="https://github.com/user-attachments/assets/d7c36d37-6a4a-4ad5-80f5-91510d17ffdf" />
 
-
-
+🎤 Trained Somali Voice Model
 ---
+You can download the pre-trained Somali RVC model from Hugging Face:
+
+Direct Link: https://huggingface.co/Mohmdaslam/somali-voice-model
+---
+
+# 📂 Dataset
+
+The **Somali Voice Dataset** contains recordings ready for training and fine-tuning voice models.  
+
+[![Access Dataset](https://img.shields.io/badge/Download-Dataset-orange?style=for-the-badge)](https://huggingface.co/datasets/Mohmdaslam/somali-voice-dataset)  
+
+**Direct Link:** [https://huggingface.co/datasets/Mohmdaslam/somali-voice-dataset](https://huggingface.co/datasets/Mohmdaslam/somali-voice-dataset)
 
 ## ⚙️ Setup & Environment
 
@@ -84,12 +97,12 @@ data.ipynb / data.py # Supporting scripts and notebooks
 python -m venv .venv
 ```
 
-# Activate venv (Windows)
+ Activate venv (Windows)
 ```bash
 .\.venv\Scripts\activate
 ```
 
-# Activate venv (Linux/Mac)
+ Activate venv (Linux/Mac)
 ```bash
 source .venv/bin/activate
 ```
@@ -99,7 +112,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-🌐 RVC WebUI
+# 🌐 RVC WebUI
 ```bash
 # Launch RVC Web Interface
 python Retrieval-based-Voice-Conversion-WebUI/infer-web.py
@@ -113,28 +126,30 @@ python Retrieval-based-Voice-Conversion-WebUI/infer-web.py
 python data.py --input somali_dataset_backup/raw/ --output cleaned.wav
 ```
 
-##📸 Preprocessing Image
+📸 Preprocessing Image
 <img src="https://github.com/user-attachments/assets/493f517f-995b-488a-b7f3-5d834b3ba1ef" alt="Preprocessing" width="800"/>
 
 
 
-# Feature extraction for training (pitch extraction, etc.)
+ Feature extraction for training (pitch extraction, etc.)
+ 
 ```bash
 python extract_f0_feature.py --input somali_dataset_backup/ --output chunks/
 ```
 
-##📸 Feature Extraction Image
+📸 Feature Extraction Image
 <img width="1868" height="346" alt="feature extraction" src="https://github.com/user-attachments/assets/97c9c300-9058-4163-b9fe-daa4767ae417" />
 
 
-##🧩 Model Training & Conversion (RVC)
+# 🧩 Model Training & Conversion (RVC)
+
 
 ```bash
 # Example training command for RVC
 python train.py --exp_name exp_somali --dataset chunks/ --output_dir models/ --epochs 100 --gpu 0
 ```
 
-## 📸 Model Training Image  
+📸 Model Training Image  
 <img src="https://github.com/user-attachments/assets/db4c3202-e791-48f4-b3af-5106bfecfeb8" alt="Training Screenshot" width="800"/>  
 
 Trining Done:
@@ -156,7 +171,8 @@ Notes:
 --gpu → specify which GPU to use
 ```
 
-🔊 Model Inference
+# 🔊 Model Inference
+
 ```bash
 # Convert your preprocessed audio using trained model
 python Retrieval-based-Voice-Conversion-WebUI/infer.py \
@@ -165,7 +181,7 @@ python Retrieval-based-Voice-Conversion-WebUI/infer.py \
 --output converted.wav
 ```
 
-##📸 Model Inference Image
+📸 Model Inference Image
 <img width="1817" height="1023" alt="inference" src="https://github.com/user-attachments/assets/813e4f24-30b4-4443-8721-fd5d90793012" />
 
 
@@ -176,7 +192,7 @@ powershell -Command "Get-ChildItem -Path . -Recurse -Directory -Filter __pycache
 ```
 
 
-## 🔈 Output Audio
+# 🔈 Output Audio
 
 🎧 # Listen to the Audio
 
