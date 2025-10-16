@@ -69,59 +69,82 @@ cleaned.wav # Preprocessed input audio
 converted.wav # Output after conversion
 data.ipynb / data.py # Supporting scripts and notebooks
 
+<img width="354" height="362" alt="folder" src="https://github.com/user-attachments/assets/d7c36d37-6a4a-4ad5-80f5-91510d17ffdf" />
+
+
 
 ---
 
 ## ⚙️ Setup & Environment
 
-```bash
+
 # Create virtual environment
+
+```bash
 python -m venv .venv
+```
 
 # Activate venv (Windows)
+```bash
 .\.venv\Scripts\activate
+```
 
 # Activate venv (Linux/Mac)
+```bash
 source .venv/bin/activate
+```
 
 # Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 🌐 RVC WebUI
+```bash
 # Launch RVC Web Interface
 python Retrieval-based-Voice-Conversion-WebUI/infer-web.py
+```
 
 🎨 RVC WebUI Screenshot
 
 🧹 Data Preparation & Processing
+```bash
 # Preprocess and clean raw audio data
 python data.py --input somali_dataset_backup/raw/ --output cleaned.wav
+```
 
-📸 Preprocessing Image
+##📸 Preprocessing Image
+<img src="https://github.com/user-attachments/assets/493f517f-995b-488a-b7f3-5d834b3ba1ef" alt="Preprocessing" width="800"/>
+
+
 
 # Feature extraction for training (pitch extraction, etc.)
+```bash
 python extract_f0_feature.py --input somali_dataset_backup/ --output chunks/
+```
 
-📸 Feature Extraction Image
+##📸 Feature Extraction Image
+<img width="1868" height="346" alt="feature extraction" src="https://github.com/user-attachments/assets/97c9c300-9058-4163-b9fe-daa4767ae417" />
 
-🧩 Model Training & Conversion (RVC)
 
+##🧩 Model Training & Conversion (RVC)
+
+```bash
 # Example training command for RVC
 python train.py --exp_name exp_somali --dataset chunks/ --output_dir models/ --epochs 100 --gpu 0
+```
 
-📸 Model Training Image
-
-![Model Training](assets/<img width="1855" height="511" alt="training1 png" src="https://github.com/user-attachments/assets/db4c3202-e791-48f4-b3af-5106bfecfeb8" />)
-)
+## 📸 Model Training Image  
+<img src="https://github.com/user-attachments/assets/db4c3202-e791-48f4-b3af-5106bfecfeb8" alt="Training Screenshot" width="800"/>  
 
 Trining Done:
 
-![Model Training Done](assets/<img width="958" height="891" alt="training2" src="https://github.com/user-attachments/assets/fb101320-af09-4664-9884-f3b1de147600" />)
+<img width="958" height="891" alt="training2" src="https://github.com/user-attachments/assets/fb101320-af09-4664-9884-f3b1de147600" />
 
 
 
 Notes:
-
+```bash
 --exp_name → any custom experiment name (e.g., exp_somali)
 
 --dataset → path to your extracted features
@@ -131,18 +154,31 @@ Notes:
 --epochs → number of training passes
 
 --gpu → specify which GPU to use
+```
 
 🔊 Model Inference
-
+```bash
 # Convert your preprocessed audio using trained model
 python Retrieval-based-Voice-Conversion-WebUI/infer.py \
 --input cleaned.wav \
 --model <your_model>.pth \
 --output converted.wav
+```
 
-📸 Model Inference Image
+##📸 Model Inference Image
+<img width="1817" height="1023" alt="inference" src="https://github.com/user-attachments/assets/813e4f24-30b4-4443-8721-fd5d90793012" />
+
 
 🧽 Environment Maintenance
 # Clean workspace (Windows PowerShell)
+```bash
 powershell -Command "Get-ChildItem -Path . -Recurse -Directory -Filter __pycache__ | Remove-Item -Recurse -Force"
+```
+
+
+## 🔈 Output Audio
+
+🎧 [Click to Play Converted Voice](assets/audio.wav)
+
+
 
