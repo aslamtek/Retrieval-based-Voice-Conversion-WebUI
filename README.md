@@ -178,7 +178,13 @@ powershell -Command "Get-ChildItem -Path . -Recurse -Directory -Filter __pycache
 
 ## 🔈 Output Audio
 
-🎧 [Click to Play Converted Voice](assets/audio.wav)
+🎧 # Listen to the Audio
+
+<audio controls>
+  <source src="assets/audio.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
 
 
 
